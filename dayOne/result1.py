@@ -17,7 +17,7 @@ def getDistance(ListA, ListB):
         total_distance += abs(ListA[i] - ListB[i])  
     return total_distance 
 
-with open('numberList1.txt', 'r', encoding='utf-8') as file:
+with open('/Users/sebastianbinke/Documents/GitHub/AdventOfCode/dayOne/numberList1.txt', 'r', encoding='utf-8') as file:
     data = file.read()
 
 numbers = list(map(int, data.strip().split()))
@@ -29,10 +29,24 @@ for i in range(0, len(numbers)):
     if i % 2 == 0:
         listA.append(int(numbers[i]))
     else: listB.append(int(numbers[i]))
+    
+#bruteforce for part two
 
-print(listA)
+similarityScore = 0
+count = 0
+for i in range(0, len(listA)):
+    for j in range(0, len(listB)):
+        if listA[i] == listB[j]:
+            count+=1
+    similarityScore += listA[i]*count
+    count = 0
+
+#just for debugging (being able to compare text document to lists if correctly sorted)
+print(listA) 
 print("\n")
 print(listB)
     
 total_Distance = getDistance(sortList(listA), sortList(listB))
-print("Die totale Distanz beträgt: ", total_Distance)
+print("The total distance equals: ", total_Distance)
+
+print("The similarity score is: ", similarityScore)

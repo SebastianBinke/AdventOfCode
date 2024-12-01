@@ -1,0 +1,2 @@
+The total distance equals:  2176849
+The similarity score is:  23384288
