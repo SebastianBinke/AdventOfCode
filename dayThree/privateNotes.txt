@@ -1,2 +1,2 @@
 #dataString = dataString.translate({ord(c): None for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~!§$%&/{|][^]<>}=?'#+*.;:-_@"})
-um gezielte werte aus dem string zu entfernen
+um gezielte werte aus dem string zu entfernen --> entfernt, da mit regex gearbeitet für int erkennung

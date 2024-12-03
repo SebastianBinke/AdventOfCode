@@ -3,7 +3,7 @@ with open('/Users/sebastianbinke/Documents/GitHub/AdventOfCode/dayThree/input.tx
     # Zeilenweise lesen
     dataString = file.read()
     #flags=re.DOTALL über alle new lines sonst hört am ende der line mit re.sub check auf 
-    dataString = re.sub(r"(?s)don't\(\).*?do\(\)", '', dataString) #. matched alle zeichen * beliebig oft ? - alle dazwischen werden betrachtet
+    dataString = re.sub(r"don't\(\).*?(?:do\(\)|$)", '', dataString, flags=re.DOTALL) #. matched alle zeichen * beliebig oft ? - alle dazwischen werden betrachtet
     pattern = r"mul\((\d+),(\d+)\)" #pattern für regex-muster im format (int,int)
     cleanedDataString = re.findall(pattern, dataString) #format 'int', 'int', ...
     sum = 0
