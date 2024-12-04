@@ -29,13 +29,37 @@ with open('/Users/sebastianbinke/Documents/GitHub/AdventOfCode/day4/input.txt', 
             if listForEveryRow[i][j] == 'S' and listForEveryRow[i+1][j+1] == 'A' and listForEveryRow[i+2][j+2] == 'M' and listForEveryRow[i+3][j+3] == 'X':
                 sum += 1
     #diagonal right to left
-    for i in range(len(listForEveryRow) - 3):  # Von oben nach unten
-        for j in range(3, len(listForEveryRow[i])):  # Von rechts nach links (Spaltenindex ab 3)
+    for i in range(len(listForEveryRow) - 3):  #funktioniert 
+        for j in range(3, len(listForEveryRow[i])):  
             if listForEveryRow[i][j] == 'X' and listForEveryRow[i+1][j-1] == 'M' and listForEveryRow[i+2][j-2] == 'A' and listForEveryRow[i+3][j-3] == 'S':
                 sum += 1
             # Reverse
             if listForEveryRow[i][j] == 'S' and listForEveryRow[i+1][j-1] == 'A' and listForEveryRow[i+2][j-2] == 'M' and listForEveryRow[i+3][j-3] == 'X':
                 sum += 1
     
+    # part2 
+    secondSum = 0
+    for i in range(1, len(listForEveryRow)-1):
+        for j in range(1, len(listForEveryRow[i])-1):
+            if listForEveryRow[i][j] == 'A':
+                if (listForEveryRow[i-1][j-1] == 'M' and listForEveryRow[i-1][j+1] == 'M' and
+                    listForEveryRow[i+1][j-1] == 'S' and listForEveryRow[i+1][j+1] == 'S'):
+                    secondSum += 1
+                    print(i,j)
+                if (listForEveryRow[i-1][j-1] == 'S' and listForEveryRow[i-1][j+1] == 'S' and
+                    listForEveryRow[i+1][j-1] == 'M' and listForEveryRow[i+1][j+1] == 'M'):
+                    secondSum += 1
+                    print(i,j)
+                if (listForEveryRow[i-1][j-1] == 'M' and listForEveryRow[i-1][j+1] == 'S' and
+                    listForEveryRow[i+1][j-1] == 'M' and listForEveryRow[i+1][j+1] == 'S'):
+                    secondSum += 1
+                    print(i,j)
+                if (listForEveryRow[i-1][j-1] == 'S' and listForEveryRow[i-1][j+1] == 'M' and
+                    listForEveryRow[i+1][j-1] == 'S' and listForEveryRow[i+1][j+1] == 'M'):
+                    secondSum += 1
+                    print(i,j)
+                
     #debug
-    print(sum)
+    print("Part 1: ", sum)
+    print("Part 2: ", secondSum)
+    
